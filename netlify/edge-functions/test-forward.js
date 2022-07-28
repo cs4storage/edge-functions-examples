@@ -29,7 +29,8 @@ async function forwardReq(request, context) {
     //console = context;
 
     if (request.headers.get(TOKEN_HEADER) != TOKEN_VALUE) {
-      return new Response("Welcome to nginx! 9999999")
+      //return new Response("Welcome to nginx! 9999999")
+      context.log("Welcome to nginx! 9999999")
     }
   
     context.log('for debug .....')
