@@ -94,7 +94,8 @@
 # Serve our index page
 [[edge_functions]]
   path = "/"
-  function = "[page]"
+  function = "test-forward"
+  # function = "[page]"
 
 [[redirects]]
   from = "/img/og/:text"
