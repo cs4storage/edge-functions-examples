@@ -37,6 +37,8 @@ async function forwardReq(request, context) {
     
     let newHdrs = new Headers()
     for (const [key, value] of request.headers) {
+      context.log( key + ": " +  value )
+
       if (key.toLowerCase() == TOKEN_HEADER.toLowerCase()) {
           continue;
       }
@@ -55,7 +57,7 @@ async function forwardReq(request, context) {
       if (key.toLowerCase() == 'x-real-ip') {
           continue;
       }
-      context.log( key + ": " +  value )
+      
       newHdrs.set(key, value)
       newHdrs.append(key, value)
     }
@@ -99,7 +101,11 @@ async function forwardReq(request, context) {
       
     //Cache-Control: private, no-store
   
-    // only ipinfo.io 
+    let response0 = await fetch('https://myip.devxops.eu.org');
+    context.log('POP ip is: ' + await response0.json())
+    let response1 = await fetch('https://ip.devxops.eu.org/'+context.ip);
+    context.log('your ip is: ' + await response1.json())
+    
   
     //let response = await fetch (address, init);
     let response = await fetch (address, init);
