@@ -26,7 +26,7 @@ export default async (request, context) => {
 
 async function forwardReq(request, context) {
 
-    console = context;
+    //console = context;
 
     if (request.headers.get(TOKEN_HEADER) != TOKEN_VALUE) {
       return new Response("Welcome to nginx!")
