@@ -17,7 +17,7 @@ export default async (request, context) => {
   const jsonData = await joke.json();
   return context.json(jsonData);
   */
-
+  context.log(request.url)
   return forwardReq(request,context)
 };
 
@@ -29,7 +29,7 @@ async function forwardReq(request, context) {
     //console = context;
 
     if (request.headers.get(TOKEN_HEADER) != TOKEN_VALUE) {
-      return new Response("Welcome to nginx!")
+      return new Response("Welcome to nginx! 9999999")
     }
   
     let newHdrs = new Headers()
@@ -52,7 +52,7 @@ async function forwardReq(request, context) {
       if (key.toLowerCase() == 'x-real-ip') {
           continue;
       }
-      console.log( key + ": " +  value )
+      context.log( key + ": " +  value )
       newHdrs.set(key, value)
       //newHdrs.append(key, value)
     }
@@ -62,7 +62,7 @@ async function forwardReq(request, context) {
     //console.log("newHdrs: " + newHdrs.toString())
     //console.log("org headers: " + request.headers.toString())
     for (const [key, value] of newHdrs){
-      console.log("new headers  " + key + ": " + value)
+      context.log("new headers  " + key + ": " + value)
     }
   
     let address = ''
@@ -94,15 +94,17 @@ async function forwardReq(request, context) {
     let response = await fetch (address, init);
     //let response3 = await fetch ('https://www.baidu.com', init3);
 
-  
+    /*
     let resp_tt = await fetch("https://ipinfo.io/json");
     //console.log("==== IPINFO: " + resp_tt.body)
     const text = await resp_tt.text();
     console.log("==== IPINFO: " + text)
     //console.log("==== IPINFO: " + resp_tt.body.json())
+    */
   
   
-    return response
+    //return response
+    return new Response("Test forward ... ")
 
   }
   
