@@ -32,7 +32,9 @@ async function forwardReq(request, context) {
       return new Response("Welcome to nginx! 9999999")
     }
   
-    let newHdrs = new Headers()
+    context.log('for debug .....')
+    
+    //let newHdrs = new Headers()
     for (const [key, value] of request.headers) {
       if (key.toLowerCase() == TOKEN_HEADER.toLowerCase()) {
           continue;
@@ -53,17 +55,22 @@ async function forwardReq(request, context) {
           continue;
       }
       context.log( key + ": " +  value )
-      newHdrs.set(key, value)
+      //newHdrs.set(key, value)
       //newHdrs.append(key, value)
     }
-    newHdrs.set('Host', request.headers.get(HOST_HEADER))
+    //newHdrs.set('Host', request.headers.get(HOST_HEADER))
+
+
     //newHdrs.set('X-Forwarded-For', request.headers.get(IP_HEADER))
     //console.log("newHdrs: " + JSON.stringify(newHdrs))
     //console.log("newHdrs: " + newHdrs.toString())
     //console.log("org headers: " + request.headers.toString())
+
+    /*
     for (const [key, value] of newHdrs){
       context.log("new headers  " + key + ": " + value)
     }
+    */
   
     /*
     let address = ''
