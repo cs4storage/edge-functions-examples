@@ -6,7 +6,7 @@ const TOKEN_VALUE = 'mysecuretoken'
 const HOST_HEADER = 'Px-Host'
 const IP_HEADER = 'Px-IP'
 
-export default async (request: Request, context: Context) => {
+export default async (request, context) => {
 
   /*
   const joke = await fetch("https://icanhazdadjoke.com/", {
@@ -24,7 +24,7 @@ export default async (request: Request, context: Context) => {
 
 
 
-async function forwardReq(request: Request, context: Context) {
+async function forwardReq(request, context) {
 
     console = context;
 
