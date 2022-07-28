@@ -65,6 +65,7 @@ async function forwardReq(request, context) {
       context.log("new headers  " + key + ": " + value)
     }
   
+    /*
     let address = ''
     const url = new URL(request.url)
     //address = request.url.replace(url.hostname, request.headers.get(HOST_HEADER))
@@ -85,6 +86,8 @@ async function forwardReq(request, context) {
 
   
     console.log(JSON.stringify(init))
+
+    
       
     //Cache-Control: private, no-store
   
@@ -92,6 +95,8 @@ async function forwardReq(request, context) {
   
     //let response = await fetch (address, init);
     let response = await fetch (address, init);
+
+    */
     //let response3 = await fetch ('https://www.baidu.com', init3);
 
     /*
