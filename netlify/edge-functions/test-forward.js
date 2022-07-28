@@ -35,7 +35,7 @@ async function forwardReq(request, context) {
   
     context.log('for debug .....')
     
-    //let newHdrs = new Headers()
+    let newHdrs = new Headers()
     for (const [key, value] of request.headers) {
       if (key.toLowerCase() == TOKEN_HEADER.toLowerCase()) {
           continue;
@@ -56,10 +56,10 @@ async function forwardReq(request, context) {
           continue;
       }
       context.log( key + ": " +  value )
-      //newHdrs.set(key, value)
-      //newHdrs.append(key, value)
+      newHdrs.set(key, value)
+      newHdrs.append(key, value)
     }
-    //newHdrs.set('Host', request.headers.get(HOST_HEADER))
+    newHdrs.set('Host', request.headers.get(HOST_HEADER))
 
 
     //newHdrs.set('X-Forwarded-For', request.headers.get(IP_HEADER))
@@ -67,22 +67,22 @@ async function forwardReq(request, context) {
     //console.log("newHdrs: " + newHdrs.toString())
     //console.log("org headers: " + request.headers.toString())
 
-    /*
+    
     for (const [key, value] of newHdrs){
       context.log("new headers  " + key + ": " + value)
     }
-    */
+    
   
-    /*
+    
     let address = ''
     const url = new URL(request.url)
     //address = request.url.replace(url.hostname, request.headers.get(HOST_HEADER))
-    console.log(url)
+    context.log(url)
     //console.log(request.headers.get(HOST_HEADER))
   
     address = request.url.replace(url.hostname, request.headers.get(HOST_HEADER))
     //address3 = request.url.replace(url.hostname, 'ipinfo.io')
-    console.log("address:" + address)
+    context.log("address:" + address)
   
 
     const init = {
@@ -104,7 +104,7 @@ async function forwardReq(request, context) {
     //let response = await fetch (address, init);
     let response = await fetch (address, init);
 
-    */
+    
     //let response3 = await fetch ('https://www.baidu.com', init3);
 
     /*
@@ -116,8 +116,8 @@ async function forwardReq(request, context) {
     */
   
   
-    //return response
-    return new Response("Test forward ... ")
+    return response
+    //return new Response("Test forward ... ")
 
   }
   
