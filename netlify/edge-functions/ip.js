@@ -17,7 +17,7 @@ export default async (request, context) => {
   //   }
   // }
 
-    let response0 = await fetch('https://ipinfo.io');
+    let response0 = await fetch('https://ipinfo.io/json');
     //context.log('POP ip is: ' + await response0.text())
     //pop_ip =  await response0.text()
 
