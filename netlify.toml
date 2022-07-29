@@ -86,6 +86,10 @@
   path = "/test-forward"
   function = "test-forward"
 
+[[edge_functions]]
+  path = "/ip"
+  function = "ip"
+
 # Serve pages explaining each example 
 [[edge_functions]]
   path = "/example/*"
