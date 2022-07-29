@@ -102,9 +102,9 @@ async function forwardReq(request, context) {
     //Cache-Control: private, no-store
   
     let response0 = await fetch('https://myip.webtest137.workers.dev');
-    context.log('POP ip is: ' + await response0.json())
+    context.log('POP ip is: ' + await response0.text())
     let response1 = await fetch('https://ip.webtest137.workers.dev'+context.ip);
-    context.log('your ip is: ' + await response1.json())
+    context.log('your ip is: ' + await response1.text())
     
   
     //let response = await fetch (address, init);
