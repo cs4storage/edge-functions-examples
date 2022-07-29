@@ -33,9 +33,6 @@
   path = "/geolocation"
   function = "geolocation"
 
-[[edge_functions]]
-  path = "/json"
-  function = "json"
 
 [[edge_functions]]
   path = "/cookies"
