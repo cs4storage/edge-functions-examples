@@ -19,7 +19,9 @@ export default async (request, context) => {
 
     let response0 = await fetch('https://myip.ipip.net');
     //context.log('POP ip is: ' + await response0.text())
-    pop_ip =  await response0.text()
+    //pop_ip =  await response0.text()
+
+    return response0 
 
   return context.json({
     my_ip: pop_ip,
